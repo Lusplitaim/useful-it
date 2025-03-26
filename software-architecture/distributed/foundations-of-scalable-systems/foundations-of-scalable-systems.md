@@ -63,3 +63,12 @@ Splitting up, or partitioning data in a relational database, is a technique for 
 
 ## NoSQL Data Models
 ![alt text](nosql-data-models.png)
+
+## The CAP Theorem
+It describes the choices a database system has if there is a network partition, namely when the network drops or delays messages sent between the nodes in the database.
+This situation arises because a network partition means some nodes in the database are not accessible to others—the partition splits the database into two groups of nodes. If an update occurs and the replicas for the updated data object reside on both sides of the partition, then the database can either:
+* Return an error as it cannot ensure replica consistency (CP);
+* Apply the update to the subset of replicas that are visible (AP). This means there
+is replica inconsistency until the partition heals and the database can make all
+replicas consistent. Until the inconsistency is resolved, clients may see different
+values for the same data object.
